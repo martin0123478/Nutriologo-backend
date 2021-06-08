@@ -1,6 +1,7 @@
 const { request } = require('express')
 const bodyParser = require('body-parser')
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const morgan = require('morgan')
 const mysql = require('mysql')
@@ -8,7 +9,8 @@ const myConnection = require('express-myconnection')
 //importar rutas
 const costumersRoutes=  require('./routes/customer')
 //settings
-app.set('port', process.env.PORT || 3000)
+app.listen(3000)
+app.use(cors())
 app.use(bodyParser.json());
 //middlewares
 app.use(morgan('dev'))
